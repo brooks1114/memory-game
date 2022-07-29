@@ -24,7 +24,13 @@ button:hover {
 
 }
 
-
+/* 1 fr = 1 fraction. This will define the NUMBER OF COLUMNS WITHIN THE GRID FOR THE CARDS TO DISPLAY */
+.card-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
 
 
 
