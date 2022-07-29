@@ -16,6 +16,9 @@ const cardImages = [
 function App() {
   const [cards, setCards] = useState([])
   const [turns, setTurns] = useState(0)
+  const [choiceOne, setChoiceOne] = useState(null);
+  const [choiceTwo, setChoiceTwo] = useState(null);
+
 
   //shuffle cards
   // [...cardImages, ...cardImages] this syntax will add the card images array once, then again. so shuffleCards now has 2 copies of each card (member of the array cardImages)
@@ -31,7 +34,11 @@ function App() {
     setTurns(0)
   }
 
-  console.group(cards, turns)
+  //handle a choice
+  const handleChoice = (card) => {
+
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+  }
 
   return (
     <div className="App">
@@ -39,7 +46,10 @@ function App() {
       <button onClick={shuffleCards}>New Game</button>
       <div className="card-grid">
         {cards.map(card => (
-          <SingleCard key={card.id} card={card} />
+          <SingleCard
+            key={card.id}
+            card={card}
+            handleChoice={handleChoice} />
         ))
         }
       </div >
